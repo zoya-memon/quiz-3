@@ -19,26 +19,29 @@ arr2.map((value, index)=> {
 //- **Task 3.  Write an object of person with key values as below and print the values of the object not keys**
 //     - name, age, country, semester, cms
 //         - List of inner object contains (details): contactNumber1 & email1, contactNumber2 & email2, contactNumber3 & email3
-
-# Define the person object with the specified key-value pairs
-person = {
-    "name": "John Doe",
-    "age": 25,
-    "country": "United States",
-    "semester": 5,
-    "cms": "1234567890",
-    "details": [
-        {"contactNumber1": "555-555-5551", "email1": "john.doe@example.com"},
-        {"contactNumber2": "555-555-5552", "email2": "johnd@example.com"},
-        {"contactNumber3": "555-555-5553", "email3": "john_doe@gmail.com"}
+// Define the person object with the specified key-value pairs
+const person = {
+    name: "John Doe",
+    age: 25,
+    country: "United States",
+    semester: 5,
+    cms: "1234567890",
+    details: [
+        { contactNumber1: "555-555-5551", email1: "john.doe@example.com" },
+        { contactNumber2: "555-555-5552", email2: "johnd@example.com" },
+        { contactNumber3: "555-555-5553", email3: "john_doe@gmail.com" }
     ]
-}
+};
 
-# Print only the values of the person object
-for key, value in person.items():
-if key != "details":
-print(value)
-else:
-for contact_info in value:
-for contact_key, contact_value in contact_info.items():
-print(contact_value)
+// Print only the values of the person object
+for (const key in person) {
+    if (key !== "details") {
+        console.log(person[key]);
+    } else {
+        person.details.forEach(contactInfo => {
+            for (const contactKey in contactInfo) {
+                console.log(contactInfo[contactKey]);
+            }
+        });
+    }
+}
